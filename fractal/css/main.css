@@ -1,0 +1,148 @@
+.fWhite {
+    color: white;
+}
+.blackBg {
+    background-color: black;
+}
+.abs {
+    position: absolute;
+}
+.ilb {
+    display: inline-block;
+}
+.zeroMargin {
+    margin: 0;
+}
+.zeroPadding {
+    padding: 0;
+}
+.zeroShell {
+    margin: 0;
+    padding: 0;
+}
+.zeroOut {
+    top: 0;
+    left: 0;
+}
+.percentFull {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+#header {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    background-color: #222222;
+    border-bottom: 8px solid #ffffff;
+    top: 0;
+    left: 0;
+}
+#header #navList {
+    margin: 0 0 0 30px;
+    padding: 0;
+}
+#header #navList li {
+    line-height: 60px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 2px;
+    font-size: 12px;
+    color: black;
+    cursor: pointer;
+}
+#header #navList li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.section {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+}
+#intro #helloCanvas {
+    width: 100%;
+    height: 100%;
+}
+#intro .fractCont .middle {
+    left: 50%;
+    top: 50%;
+}
+#intro .fractCont .upper {
+    left: 50%;
+    top: 30%;
+}
+#intro .fractCont .fractText {
+    margin: 0 0 0 0;
+}
+#projects {
+    background-color: #BCCAD0;
+}
+#projects .project {
+    margin: 65px auto 0;
+    border: 8px solid #ffffff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+    background-color: #222222;
+    color: #ffffff;
+    display: inline-block;
+}
+#projects .project .canvasWrapper {
+    border-top: 8px solid #ffffff;
+    width: 100%;
+    height: 100%;
+}
+#projects .project .canvasWrapper .projectCanvas {
+    width: 100%;
+    height: 100%;
+}
+#projects .project .maxCanvas {
+    max-height: 600px;
+    max-width: 900px;
+}
+#projects .project .headerWrapper {
+    text-align: left;
+    width: 100%;
+    margin: 10px 0 10px 10px;
+}
+#projects .project .headerWrapper h2 {
+    margin: 5px 0 0 5px;
+}
+#projects .project .headerWrapper h3 {
+    margin: 0 0 0 5px;
+}
+#projects .tableCell {
+    text-align: center;
+}
+#projects .controlArrow.prev {
+    border-color: transparent #222222 transparent transparent;
+}
+#projects .controlArrow.next {
+    border-color: transparent transparent transparent #222222;
+}
+#fullPage-nav .active span {
+    background-color: white !important;
+}
+@media (orientation: landscape) {
+    #intro .lowerLeft {
+        left: 40%;
+        top: 56%;
+    }
+    #intro .lowerRight {
+        left: 60%;
+        top: 56%;
+    }
+}
+@media (orientation: portrait) {
+    #intro .lowerLeft {
+        left: 25%;
+        top: 54%;
+    }
+    #intro .lowerRight {
+        left: 75%;
+        top: 54%;
+    }
+}

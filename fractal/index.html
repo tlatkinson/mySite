@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Tyler Atkinson</title>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" type="text/less" href="css/main.less">
+    <link rel="stylesheet" type="text/less" href="css/jquery.fullPage.css">
+
+    <script type="text/javascript" src="scripts/util/less.js"></script>
+    <script type="text/javascript" src="scripts/util/jquery.fullPage.js"></script>
+
+    <script type="text/javascript" src="scripts/fract/fract.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.config.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.angleModel.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.part.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.animate.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.color.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.canvas.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.calculateLoop.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.prepareToDraw.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.turnAndDraw.js"></script>
+    <script type="text/javascript" src="scripts/fract/fract.fractal.js"></script>
+
+    <script type="text/javascript" src="scripts/main.js"></script>
+
+</head>
+<body>
+    <header id="header">
+        <!--<h1>logo goes here </h1>-->
+        <nav>
+            <ul id="navList">
+                <li data-menuanchor="Hello" class="active"><a href="#Hello">Hello</a></li>
+                <li data-menuanchor="Projects" class="active"><a href="#Projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="section active" id="intro">
+        <canvas id="helloCanvas"></canvas>
+        <article class="fractCont fWhite">
+            <h2 id="middleText" class="abs middle fractText"></h2>
+            <h4 id="upperText" class="abs upper fractText"></h4>
+            <h4 id="lowerLeftText" class="abs lowerLeft fractText"></h4>
+            <h4 id="lowerRightText" class="abs lowerRight fractText"></h4>
+
+        </article>
+    </section>
+    <section class="section" id="projects">
+            <section class="slide">
+                <div class="project">
+                    <div class="headerWrapper">
+                        <header>
+                            <h2>Snowflake Generator</h2>
+                            <h3>Randomly Generated Fractals</h3>
+                        </header>
+                    </div>
+                    <div class="canvasWrapper maxCanvas">
+                        <canvas id="snowflake" class="projectCanvas" width="900" height="600"></canvas>
+                    </div>
+                </div>
+            </section>
+            <section class="slide">
+                <div class="project">
+                    <div class="headerWrapper">
+                        <header>
+                            <h2>Music XML Player</h2>
+                            <h3>In Progress...</h3>
+                        </header>
+                    </div>
+                    <div class="canvasWrapper maxCanvas"></div>
+                </div>
+            </section>
+    </section>
+</body>
+</html>

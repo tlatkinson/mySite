@@ -1,0 +1,182 @@
+@projectBorder:  8px solid white;
+@mainBg: #222222;
+@mainText: white;
+
+
+.botLinearGradient(@topColor, @botColor) {
+    background-image: -webkit-linear-gradient(top, @topColor, @botColor);
+    background-image: -moz-linear-gradient(top, @topColor, @botColor);
+    background-image: -ms-linear-gradient(top, @topColor, @botColor);
+    background-image: -o-linear-gradient(top, @topColor, @botColor);
+}
+
+.fWhite {
+    color : white;
+}
+.blackBg {
+    background-color: black;
+}
+.abs {
+    position : absolute;
+}
+.ilb {
+    display: inline-block;
+}
+.zeroMargin {
+    margin : 0;
+}
+.zeroPadding {
+    padding: 0;
+}
+.zeroShell {
+    .zeroMargin;
+    .zeroPadding;
+}
+.zeroOut {
+    top: 0;
+    left: 0
+}
+.percentFull {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    .zeroMargin;
+}
+
+#header {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    background-color: @mainBg;
+    border-bottom: @projectBorder;
+    .zeroOut;
+
+    #navList {
+        margin: 0 0 0 30px;
+        padding: 0;
+
+        li {
+            line-height: 60px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 2px;
+            font-size: 12px;
+            color: black;
+            cursor: pointer;
+
+            a {
+                color: @mainText;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.section {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    .percentFull;
+}
+
+#intro {
+    #helloCanvas{
+        width: 100%;
+        height: 100%;
+    }
+    .fractCont {
+        .middle {
+            left : 50%;
+            top : 50%;
+        }
+        .upper {
+            left : 50%;
+            top : 30%;
+        }
+
+        .fractText {
+            margin: 0 0 0 0;
+        }
+    }
+}
+
+#projects {
+    background-color: #BCCAD0;
+
+    .project {
+        margin: 65px auto 0;
+        border: @projectBorder;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+        background-color: @mainBg;
+        color: @mainText;
+        .ilb;
+
+        .canvasWrapper {
+            border-top: @projectBorder;
+            .percentFull;
+
+            .projectCanvas {
+                .percentFull;
+            }
+        }
+
+        .maxCanvas {
+            max-height: 600px;
+            max-width: 900px;
+        }
+
+        .headerWrapper {
+            text-align: left;
+            width: 100%;
+            margin: 10px 0 10px 10px;
+
+            h2 {
+                margin: 5px 0 0 5px;
+            }
+            h3 {
+                margin: 0 0 0 5px;
+            }
+        }
+    }
+    .tableCell {
+        text-align: center;
+    }
+    .controlArrow.prev {
+         border-color: transparent @mainBg transparent transparent;
+     }
+    .controlArrow.next {
+        border-color: transparent transparent transparent @mainBg;
+    }
+}
+
+#fullPage-nav {
+    .active span{
+        background-color: white !important;
+    }
+}
+
+
+@media(orientation: landscape) {
+#intro {
+    .lowerLeft {
+        left : 40%;
+        top : 56%;
+    }
+    .lowerRight {
+        left : 60%;
+        top : 56%;
+    }
+}}
+@media(orientation: portrait) {
+#intro {
+    .lowerLeft {
+        left : 25%;
+        top : 54%;
+    }
+    .lowerRight {
+        left : 75%;
+        top : 54%;
+    }
+}}
