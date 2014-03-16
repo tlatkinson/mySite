@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.canvas = (function () {
@@ -29,38 +29,38 @@ var fract = (function (my) {
 
             random = Math.random() * 1000;
 
-            if((random > (1000 - fract.config.flakeGenerationSpeed))) {
-                $.each(fract.fractals, function () {
+            if((random > (1000 - tla.config.flakeGenerationSpeed))) {
+                $.each(tla.fractals, function () {
                     if(this) {
                         totalFlakes += 1;
                     }
                 });
-                if(totalFlakes < fract.config.maxFlakes) {
-                    fractal = fract.addRandomFractal();
+                if(totalFlakes < tla.config.maxFlakes) {
+                    fractal = tla.addRandomFractal();
                     fractal.renderToggle();
                 }
             }
         }
 
         function resetCanvases() {
-            $.each(Object.keys(fract.ctx), function () {
-                fract.ctx[this].clear();
+            $.each(Object.keys(tla.ctx), function () {
+                tla.ctx[this].clear();
             });
         }
 
         function drawOnActiveCanvases() {
-            $.each(fract.fractals, function () {
+            $.each(tla.fractals, function () {
                 //only draw active canvas
                 if(this && this.render
-                    && ((this.canvas !== fract.snowCanvas) || (fract.generateFlakes && this.canvas === fract.snowCanvas))) {
+                    && ((this.canvas !== tla.snowCanvas) || (tla.generateFlakes && this.canvas === tla.snowCanvas))) {
 
                     this.prepareToDraw();
-                    fract.ctx[this.canvas].beginPath();
-                    fract.ctx[this.canvas].moveTo(this.drawVals.x, this.drawVals.y);
+                    tla.ctx[this.canvas].beginPath();
+                    tla.ctx[this.canvas].moveTo(this.drawVals.x, this.drawVals.y);
                     this.turnAndDraw();
 
                     //add home page text
-                    if(this.canvas === fract.mainCanvas) {
+                    if(this.canvas === tla.mainCanvas) {
                         if(!this.animate) {
                             displayHomePageText(this);
                         } else if(this.texts){
@@ -74,7 +74,7 @@ var fract = (function (my) {
         canvas.render = function () {
             resetCanvases();
 
-            if(fract.generateFlakes) {
+            if(tla.generateFlakes) {
                 addRandomFlakes();
             }
 
@@ -85,4 +85,4 @@ var fract = (function (my) {
     }());
 
     return my;
-}(fract || {}));
+}(tla || {}));

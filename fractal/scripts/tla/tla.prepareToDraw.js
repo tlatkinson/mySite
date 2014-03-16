@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.prepareToDraw = function (fractal) {
@@ -22,19 +22,19 @@ var fract = (function (my) {
             canvasHeight;
 
         function setCanvasSize() {
-            canvasWidth = fract.canvasEle[fractal.canvas].clientWidth;
-            canvasHeight = fract.canvasEle[fractal.canvas].clientHeight;
+            canvasWidth = tla.canvasEle[fractal.canvas].clientWidth;
+            canvasHeight = tla.canvasEle[fractal.canvas].clientHeight;
         }
 
         function setZoom() {
-            if(fractal.canvas === fract.mainCanvas) {
-                zoomPow = fract.config.zoomPow;
+            if(fractal.canvas === tla.mainCanvas) {
+                zoomPow = tla.config.zoomPow;
 
                 if(canvasWidth < canvasHeight) {
-                    zoomPow = fract.config.zoomPow / 2;
+                    zoomPow = tla.config.zoomPow / 2;
                 }
             } else {
-                zoomPow = fract.config.flakeZoomPow;
+                zoomPow = tla.config.flakeZoomPow;
             }
         }
 
@@ -94,7 +94,7 @@ var fract = (function (my) {
             if (motifWidth > 0.98) {
                 //the default (would use 1, but want leeway to make up for floating point weirdness)
                 drawVals.unit = canvasWidth / zoomPow / Math.abs(Math.pow(motifWidth, drawVals.depth));
-                gap = fract.width / zoomPow;
+                gap = tla.width / zoomPow;
 
             } else {
                 //the fractal turns in on itself, so the start and end points won't be the limits of the shape.
@@ -140,7 +140,7 @@ var fract = (function (my) {
             //home page
             if(fractal.stops) {
                 drawVals.x = canvasWidth / 2 - (gap / 2);
-                drawVals.y = canvasHeight / 2 - polyOffset - fract.config.offset;
+                drawVals.y = canvasHeight / 2 - polyOffset - tla.config.offset;
             //randomly generated flakes
             } else {
                 drawVals.x = fractal.x * canvasWidth;
@@ -166,4 +166,4 @@ var fract = (function (my) {
     };
 
     return my;
-}(fract || {}));
+}(tla || {}));

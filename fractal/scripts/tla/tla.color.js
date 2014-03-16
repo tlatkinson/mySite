@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true, bitwise: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.color = (function () {
@@ -30,7 +30,7 @@ var fract = (function (my) {
                 var nybHexString = "0123456789ABCDEF";
                 return String(nybHexString.substr((n >> 4) & 0x0F, 1)) + nybHexString.substr(n & 0x0F, 1);
             }
-            if (fract.color.bg === fract.color.black) {
+            if (tla.color.bg === tla.color.black) {
                 newColor = '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
             } else {
                 newColor = '#' + byte2Hex(r / 2) + byte2Hex(g / 2) + byte2Hex(b / 2);
@@ -41,7 +41,7 @@ var fract = (function (my) {
 
         color.cycle = function () {
             if (color.on) {
-                fract.ctx[fract.mainCanvas].strokeStyle = color.jump();
+                tla.ctx[tla.mainCanvas].strokeStyle = color.jump();
             }
         };
 
@@ -53,8 +53,8 @@ var fract = (function (my) {
                 this.bg = color.black;
                 this.fractal = color.white;
             }
-            fract.ctx[fract.mainCanvas].fillStyle = this.bg;
-            fract.ctx[fract.mainCanvas].strokeStyle = this.fractal;
+            tla.ctx[tla.mainCanvas].fillStyle = this.bg;
+            tla.ctx[tla.mainCanvas].strokeStyle = this.fractal;
         };
 
         color.toggle = function () {
@@ -64,12 +64,12 @@ var fract = (function (my) {
             } else {
                 this.on = true;
             }
-            fract.ctx[fract.mainCanvas].clear();
-            fract.canvas.render();
+            tla.ctx[tla.mainCanvas].clear();
+            tla.canvas.render();
         };
 
         return color;
     }());
 
     return my;
-}(fract || {}));
+}(tla || {}));

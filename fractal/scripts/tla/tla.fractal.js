@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     //TODO add base snowflake class and extend
@@ -19,7 +19,7 @@ var fract = (function (my) {
         } else {
             initialAngle = 0;
             initialSkew = 0;
-            fractal.descendRate = (Math.random() * (fract.config.descendRate)) + 0.2;
+            fractal.descendRate = (Math.random() * (tla.config.descendRate)) + 0.2;
 
             fractal.x = Math.random();
             fractal.y = -18;
@@ -28,18 +28,18 @@ var fract = (function (my) {
         }
 
         fractal.index = index;
-        fractal.angle = fract.angleModel(initialAngle, 1800, "angle", angleSteps);
-        fractal.skewangle = fract.angleModel(initialSkew, 900, "skewAngle", skewSteps);
-        fractal.poly = fract.part(poly, 6, 2, "poly");
-        fractal.segments = fract.part(segments, 2, 0, "segments");
-        fractal.mirror = fract.part(mirror, 2, 0, "mirror");
-        fractal.arms = fract.part(arms, 2, 0, "arms");
-        fractal.depth = fract.part(depth, 1, 0, "depth");
+        fractal.angle = tla.angleModel(initialAngle, 1800, "angle", angleSteps);
+        fractal.skewangle = tla.angleModel(initialSkew, 900, "skewAngle", skewSteps);
+        fractal.poly = tla.part(poly, 6, 2, "poly");
+        fractal.segments = tla.part(segments, 2, 0, "segments");
+        fractal.mirror = tla.part(mirror, 2, 0, "mirror");
+        fractal.arms = tla.part(arms, 2, 0, "arms");
+        fractal.depth = tla.part(depth, 1, 0, "depth");
         fractal.animationIndex = 0;
         fractal.stopIndex = 0;
         fractal.stops = stops;
         fractal.texts = texts;
-        fractal.iterations = fract.config.iterations;
+        fractal.iterations = tla.config.iterations;
         fractal.canvas = canvas;
 
         //handles first iteration
@@ -66,20 +66,20 @@ var fract = (function (my) {
         fractal.nudge = function () {
             var fractal = this;
 
-            if(angleSteps && ((this.animationIndex === fract.config.iterations) || valuesEqualStep())) {
+            if(angleSteps && ((this.animationIndex === tla.config.iterations) || valuesEqualStep())) {
                 this.animate = false;
 
                 if(this.stops[this.stopIndex]) {
                     setTimeout(function () {
                         fractal.nextStep();
-                    }, fract.config.timeout);
+                    }, tla.config.timeout);
                 } else {
                     this.nextStep();
                 }
             } else if(!angleSteps) {
                 this.y += this.descendRate;
 
-                if(this.y > fract.canvasEle[this.canvas].height) {
+                if(this.y > tla.canvasEle[this.canvas].height) {
                     this.destroy();
                 }
             }
@@ -95,11 +95,11 @@ var fract = (function (my) {
         };
 
         fractal.prepareToDraw = function () {
-            fract.prepareToDraw(fractal);
+            tla.prepareToDraw(fractal);
         };
 
         fractal.turnAndDraw = function () {
-            fract.turnAndDraw(fractal);
+            tla.turnAndDraw(fractal);
         };
 
         fractal.reset = function () {
@@ -111,11 +111,11 @@ var fract = (function (my) {
 
             this.angle.value = angleSteps[0];
             this.skewangle.value = skewSteps[0];
-            fract.ctx[this.canvas].clear();
+            tla.ctx[this.canvas].clear();
         };
 
         fractal.destroy = function () {
-            fract.destroyFractal(index);
+            tla.destroyFractal(index);
         };
 
         fractal.animateToggle = function () {
@@ -149,7 +149,7 @@ var fract = (function (my) {
         };
 
         function init() {
-            fractal = fract.calculateLoop(fractal);
+            fractal = tla.calculateLoop(fractal);
 
             //for front page
             if(angleSteps) {
@@ -164,4 +164,4 @@ var fract = (function (my) {
     };
 
     return my;
-}(fract || {}));
+}(tla || {}));

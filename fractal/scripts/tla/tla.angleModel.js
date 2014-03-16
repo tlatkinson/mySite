@@ -1,10 +1,10 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.angleModel = function (value, max, id, steps) {
-        var angleModel = fract.part(value, max, 0, id);
+        var angleModel = tla.part(value, max, 0, id);
 
         angleModel.steps = steps;
         angleModel.animate = true;
@@ -16,16 +16,16 @@ var fract = (function (my) {
 
             if(!this.steps) {
                 if(id === 'angle') {
-                    speed = fract.config.defaultSpeed / 2;
+                    speed = tla.config.defaultSpeed / 2;
                 } else if (id === 'skewAngle') {
-                    speed = fract.config.defaultSpeed / 5;
+                    speed = tla.config.defaultSpeed / 5;
                 }
             }
 
             if(this.animate) {
                 next = this.value + speed;
 
-                if(steps && (animationIndex === (fract.config.iterations - 1))){
+                if(steps && (animationIndex === (tla.config.iterations - 1))){
                     next = this.steps[stepIndex];
                 }
 
@@ -51,11 +51,11 @@ var fract = (function (my) {
                 this.speed = (this.max - first) + second;
             }
 
-            this.speed = this.speed / fract.config.iterations;
+            this.speed = this.speed / tla.config.iterations;
         };
 
         return angleModel;
     };
 
     return my;
-}(fract || {}));
+}(tla || {}));

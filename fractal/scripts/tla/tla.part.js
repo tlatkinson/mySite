@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.part = function (value, max, min, id) {
@@ -15,7 +15,7 @@ var fract = (function (my) {
         part.update = function (value, render) {
             this.value = value;
             if (render) {
-                fract.canvas.render();
+                tla.canvas.render();
             }
         };
 
@@ -27,4 +27,4 @@ var fract = (function (my) {
     };
 
     return my;
-}(fract || {}));
+}(tla || {}));

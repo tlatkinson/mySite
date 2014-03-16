@@ -1016,7 +1016,7 @@
 			}
 
 			isResizing = false;
-            fract.fixSize();
+            tla.fixSize();
 		}
 
 		/**

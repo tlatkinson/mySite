@@ -27,7 +27,7 @@
 
         function addEventListeners() {
             window.addEventListener('orientationchange', function () {
-                fract.fixSize();
+                tla.fixSize();
             });
         }
 
@@ -48,9 +48,9 @@
                 [186,    62,  false]
             );
 
-            fract.init();
-            fract.addFractal(2, 2, 0, 0, 1, fract.mainCanvas, steps[0], steps[1], steps[2], steps[3]);
-            fract.animate.toggle();
+            tla.init();
+            tla.addFractal(2, 2, 0, 0, 1, tla.mainCanvas, steps[0], steps[1], steps[2], steps[3]);
+            tla.animate.toggle();
         }
 
         function init() {
@@ -70,14 +70,14 @@
                 afterLoad: function (anchorLink) {
                     switch(anchorLink) {
                         case anchors.hello:
-                            fract.fractals[0].reset();
-                            fract.fractals[0].render = true;
+                            tla.fractals[0].reset();
+                            tla.fractals[0].render = true;
                             $('#fullPage-nav').show();
                             break;
                         case anchors.projects:
-                            fract.fixSize();
-                            fract.generateFlakes = true;
-                            fract.toggleFlakes(true);
+                            tla.fixSize();
+                            tla.generateFlakes = true;
+                            tla.toggleFlakes(true);
                             $('#fullPage-nav').hide();
                             break;
                     }
@@ -87,9 +87,9 @@
                         case 1:
                             break;
                         case 2:
-                            fract.fractals[0].render = false;
-                            fract.generateFlakes = false;
-                            fract.toggleFlakes(false);
+                            tla.fractals[0].render = false;
+                            tla.generateFlakes = false;
+                            tla.toggleFlakes(false);
                             break;
                     }
                 }

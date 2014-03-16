@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     //changes max to match the number of degrees required to do a full loop.
@@ -29,4 +29,4 @@ var fract = (function (my) {
     };
 
     return my;
-}(fract || {}));
+}(tla || {}));

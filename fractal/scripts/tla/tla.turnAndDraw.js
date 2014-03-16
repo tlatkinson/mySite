@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.turnAndDraw = function (fractal) {
@@ -19,7 +19,7 @@ var fract = (function (my) {
                 drawVals.x = this.x;
                 drawVals.y = this.y;
                 drawVals.heading = this.heading;
-                fract.ctx[fractal.canvas].moveTo(drawVals.x, drawVals.y);
+                tla.ctx[fractal.canvas].moveTo(drawVals.x, drawVals.y);
             };
 
             return snap;
@@ -90,12 +90,12 @@ var fract = (function (my) {
                     drawVals.x += drawVals.unit * Math.cos(drawVals.heading);
                     drawVals.y += drawVals.unit * Math.sin(drawVals.heading);
 
-                    fract.ctx[fractal.canvas].lineTo(drawVals.x, drawVals.y);
+                    tla.ctx[fractal.canvas].lineTo(drawVals.x, drawVals.y);
                     i += 1;
                 }
             }
             if (i === drawVals.sideLines * drawVals.poly) {
-                fract.ctx[fractal.canvas].stroke();
+                tla.ctx[fractal.canvas].stroke();
             }
         }
 
@@ -103,4 +103,4 @@ var fract = (function (my) {
     };
 
     return my;
-}(fract || {}));
+}(tla || {}));

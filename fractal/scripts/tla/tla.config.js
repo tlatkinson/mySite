@@ -1,6 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.config = (function () {
@@ -13,7 +13,7 @@ var fract = (function (my) {
         };
 
         config.adjustZoomLevel = function () {
-            if((fract.width > 800) && (fract.height > 800)) {
+            if((tla.width > 800) && (tla.height > 800)) {
                 config.setZoomLevel(8)
             } else {
                 config.setZoomLevel(7);
@@ -37,4 +37,4 @@ var fract = (function (my) {
     }());
 
     return my;
-}(fract || {}));
+}(tla || {}));

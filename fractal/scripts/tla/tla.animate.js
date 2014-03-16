@@ -1,7 +1,6 @@
 /*global $, document, window*/
 /*jslint browser : true, devel: true */
-var fract;
-fract = (function (my) {
+var tla =  (function (my) {
     'use strict';
 
     my.animate = (function () {
@@ -11,13 +10,13 @@ fract = (function (my) {
 
         animate.loop = function () {
             if (animate.on) {
-                window.setTimeout(animate.loop, fract.config.iterationSpeed);
-                $.each(fract.fractals, function () {
+                window.setTimeout(animate.loop, tla.config.iterationSpeed);
+                $.each(tla.fractals, function () {
                     if (this && this.animate) {
                         this.nudge();
                     }
                 });
-                fract.canvas.render();
+                tla.canvas.render();
             }
         };
 
@@ -34,4 +33,4 @@ fract = (function (my) {
     }());
 
     return my;
-}(fract || {}));
+}(tla || {}));

@@ -1,7 +1,7 @@
 /*global $, document, window, less*/
 /*jslint browser : true, devel: true */
 
-var fract = (function (my) {
+var tla = (function (my) {
     'use strict';
 
     my.fractals = [];
@@ -16,8 +16,8 @@ var fract = (function (my) {
     }
 
     function fixCentering() {
-        var articleHeight = (fract.height - 75) * 0.75,
-            articleWidth = fract.width * 0.75,
+        var articleHeight = (tla.height - 75) * 0.75,
+            articleWidth = tla.width * 0.75,
             $projectWrapper = $('#projects').find('.projectWrapper'),
             $canvasWrapper = $('.project').find('.canvasWrapper'),
             maxHeight = getPixelValue($canvasWrapper.css('max-height')),
@@ -36,32 +36,32 @@ var fract = (function (my) {
             'height': articleHeight + 'px'
         });
         $projectWrapper.css({
-            'top': ((fract.height / 2) - (articleHeight / 1.75)) + 'px'
+            'top': ((tla.height / 2) - (articleHeight / 1.75)) + 'px'
         });
     }
 
     function resetCanvases() {
-        var grd= fract.ctx[fract.snowCanvas].createLinearGradient(0, 0, 0, fract.height);
+        var grd= tla.ctx[tla.snowCanvas].createLinearGradient(0, 0, 0, tla.height);
 
-        fract.width = window.innerWidth;
-        fract.height = window.innerHeight;
+        tla.width = window.innerWidth;
+        tla.height = window.innerHeight;
 
-        $.each(Object.keys(fract.canvasEle), function () {
+        $.each(Object.keys(tla.canvasEle), function () {
             var $this = $('#' + this);
-            fract.canvasEle[this].width = $this.width();
-            fract.canvasEle[this].height = $this.height();
+            tla.canvasEle[this].width = $this.width();
+            tla.canvasEle[this].height = $this.height();
         });
 
         grd.addColorStop(0,'#1A3742');
         grd.addColorStop(1,'#9EA183');
-        fract.canvasEle[fract.snowCanvas].fillStyle = grd;
-        fract.canvasEle[fract.snowCanvas].strokeStyle = fract.color.fractal;
+        tla.canvasEle[tla.snowCanvas].fillStyle = grd;
+        tla.canvasEle[tla.snowCanvas].strokeStyle = tla.color.fractal;
 
         //still havent figured out why strokeStyle is being reverted
-        $.each(Object.keys(fract.ctx), function () {
-            fract.ctx[this].fillStyle = fract.canvasEle[this].fillStyle;
-            fract.ctx[this].strokeStyle = fract.canvasEle[this].strokeStyle;
-            fract.ctx[this].clear();
+        $.each(Object.keys(tla.ctx), function () {
+            tla.ctx[this].fillStyle = tla.canvasEle[this].fillStyle;
+            tla.ctx[this].strokeStyle = tla.canvasEle[this].strokeStyle;
+            tla.ctx[this].clear();
         });
     }
 
@@ -69,8 +69,8 @@ var fract = (function (my) {
         resetCanvases();
         fixCentering();
 
-        fract.canvas.render();
-        fract.config.adjustZoomLevel();
+        tla.canvas.render();
+        tla.config.adjustZoomLevel();
     };
 
     my.randomize = function (fractal) {
@@ -79,7 +79,7 @@ var fract = (function (my) {
         fractal.segments.random();
         fractal.mirror.random();
         fractal.arms.random();
-        fractal = fract.calculateLoop(fractal);
+        fractal = tla.calculateLoop(fractal);
 
         return fractal;
     };
@@ -87,8 +87,8 @@ var fract = (function (my) {
     function getNextIndex() {
         var i;
 
-        for(i = 0; i < fract.fractals.length; i += 1) {
-            if(!fract.fractals[i]) {
+        for(i = 0; i < tla.fractals.length; i += 1) {
+            if(!tla.fractals[i]) {
                 break;
             }
         }
@@ -98,64 +98,64 @@ var fract = (function (my) {
 
     my.addFractal = function (poly, segments, mirror, arms, depth, canvas, angleSteps, skewSteps, stops, texts) {
         var index = getNextIndex();
-        fract.fractals[index] =
-            fract.fractal(poly, segments, mirror, arms, depth, canvas, index, angleSteps, skewSteps, stops, texts);
+        tla.fractals[index] =
+            tla.fractal(poly, segments, mirror, arms, depth, canvas, index, angleSteps, skewSteps, stops, texts);
 
-        return fract.fractals[index];
+        return tla.fractals[index];
     };
 
     my.addRandomFractal = function () {
         var fractal,
             index = getNextIndex();
 
-        fractal = fract.fractal(0, 0, 0, 0, 0, fract.snowCanvas, index);
-        fract.fractals[index] = fract.randomize(fractal);
+        fractal = tla.fractal(0, 0, 0, 0, 0, tla.snowCanvas, index);
+        tla.fractals[index] = tla.randomize(fractal);
 
         return fractal;
     };
 
     my.destroyFractal = function (index) {
-        delete fract.fractals[index];
+        delete tla.fractals[index];
     };
 
     my.toggleFlakes = function (render) {
-        $.each(fract.fractals, function () {
-            if(this && this.canvas === fract.snowCanvas) {
+        $.each(tla.fractals, function () {
+            if(this && this.canvas === tla.snowCanvas) {
                 this.render = render;
             }
         });
     };
 
     function initializeCanvas(canvas) {
-        fract.canvasEle[canvas] = document.getElementById(canvas);
-        fract.ctx[canvas] = fract.canvasEle[canvas].getContext("2d");
-        fract.ctx[canvas].lineWidth = 2;
+        tla.canvasEle[canvas] = document.getElementById(canvas);
+        tla.ctx[canvas] = tla.canvasEle[canvas].getContext("2d");
+        tla.ctx[canvas].lineWidth = 2;
 
-        $.each(Object.keys(fract.canvasEle), function () {
+        $.each(Object.keys(tla.canvasEle), function () {
             var $this = $('#' + this);
-            fract.canvasEle[this].width = $this.width();
-            fract.canvasEle[this].height = $this.height();
+            tla.canvasEle[this].width = $this.width();
+            tla.canvasEle[this].height = $this.height();
         });
 
-        fract.ctx[canvas].clear = function () {
-            fract.ctx[canvas].fillRect(0, 0, fract.canvasEle[canvas].clientWidth, fract.canvasEle[canvas].clientHeight);
+        tla.ctx[canvas].clear = function () {
+            tla.ctx[canvas].fillRect(0, 0, tla.canvasEle[canvas].clientWidth, tla.canvasEle[canvas].clientHeight);
         };
     }
 
     my.init = function () {
-        var canvases = [fract.mainCanvas, fract.snowCanvas];
+        var canvases = [tla.mainCanvas, tla.snowCanvas];
 
-        fract.canvasEle = {};
-        fract.ctx = {};
+        tla.canvasEle = {};
+        tla.ctx = {};
 
         $.each(canvases, function () {
             initializeCanvas(this);
         });
 
-        fract.canvasEle[fract.mainCanvas].fillStyle = fract.color.fractalFill;
-        fract.canvasEle[fract.mainCanvas].strokeStyle = fract.color.fractal;
+        tla.canvasEle[tla.mainCanvas].fillStyle = tla.color.fractalFill;
+        tla.canvasEle[tla.mainCanvas].strokeStyle = tla.color.fractal;
 
-        fract.fixSize();
+        tla.fixSize();
 
         window.requestAnimFrame = (function () {
             return window.requestAnimationFrame ||
@@ -165,4 +165,4 @@ var fract = (function (my) {
     };
 
     return my;
-}(fract || {}));
+}(tla || {}));
